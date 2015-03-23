@@ -10,83 +10,138 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+header {
+  height: 68px;
+  background:#1E1915 url(../images/pattern.png) repeat top left; 
+  border-bottom: 1px solid rgba(0,0,0,0.3);
 }
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  
+/* Reset bootstrap */
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+  .navbar-nav > li > a {
+    color: #fff;
+    font-family: "roboto_condensedregular",sans-serif;
+    &:hover, &:focus {
+      color: #222;
+      background-color: #bfaf7e;
+    }
+  }
+  .navbar-nav > .active > a {
+    color: #222;
+    background-color: #bfaf7e;
+    &:hover, &:focus {
+      color: #372516;
+      background-color: #bfaf7e;
+    }
+  }
+  .navbar-brand {
+    width: 200px;
+    height: 68px;
+    img {
+      width: 100%;
+    }
+  }
+  .navbar-toggle {
+    margin-top: 16px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    &:hover, &:focus {
+      background-color: transparent;
+      .icon-bar {
+        background-color: #ffd5b3;
+      }
+    }
+  }
+  .navbar-collapse {
+    background:#1E1915 url(../images/pattern.png) repeat top left;
+    border-color: rgba(0,0,0,0.3);
+    li {
+      float: none;
+    }
   }
 }
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.nav-pills > li + li {
+  margin-left: 0;
 }
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
+.nav-pills > li > a {
+  border-radius: 0;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  header {
+    height: 91px;
   }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+  .navbar-default {
+    .navbar-nav > li > a {
+      background-color: #6a472b;
+      box-shadow: 0 3px 0 #372516;
+      font-size: 20px;
+      &:hover, &:focus {
+        color: #222;
+        background-color: #bfaf7e;
+      }
+    }
+    .navbar-nav > .active > a {
+      color: #222;
+      background-color: #bfaf7e;
+      box-shadow: 0 3px 0 #6a472b;
+      &:hover, &:focus {
+        color: #372516;
+        background-color: #bfaf7e;
+      }
+    }
+    .navbar-brand {
+      width: 250px;
+      padding: 20px 0 0 20px;
+    }
+    .navbar-collapse {
+      .navbar-nav {
+        padding: 20px 35px 20px 20px;
+      }
+      li {
+        float: left;
+      }
+    }
   }
-
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
+  .nav-pills > li > a.acasa {
+    border-radius: 4px 0 0 4px;
+    margin-right: 1px;
   }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  .nav-pills > li > a.contact {
+    border-radius: 0 4px 4px 0;
+    margin-left: 1px;
+  }
+}
+/* Responsive: Notebooks and up */
+@media screen and (min-width: 1200px) {
+  header {
+    height: 110px;
+  }
+  .navbar-default {
+    .navbar-nav > li > a {
+      font-size: 24px;
+    }
+    .navbar-brand {
+      padding: 30px 0 0 0;
+    }
+    .navbar-collapse {
+      .navbar-nav {
+        padding: 30px 0;
+      }
+      li {
+        float: left;
+      }
+    }
   }
 }
