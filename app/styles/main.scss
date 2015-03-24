@@ -76,6 +76,10 @@ header {
 .nav-pills > li > a {
   border-radius: 0;
 }
+.nopadding {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
