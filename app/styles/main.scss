@@ -10,6 +10,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 *,
 *:before,
 *:after {
@@ -18,16 +22,39 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
           box-sizing: border-box;
 }
 
+h2, h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400; 
+  font-size: 21px; 
+  line-height: 23px; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  margin: 20px 0; 
+  text-shadow:0 1px 1px rgba(0,0,0,0.7); 
+  color:#495931;
+}
+h3 {
+  font-size: 18px; 
+  line-height: 20px;
+}
+footer h3{
+  padding-top:20px; 
+  color:#F2DEA2;
+}
+p {
+  font-size: 15px;
+  line-height: 20px;
+  margin: 0 0 20px 0;
+}
+
 header {
   height: 68px;
-  background:#1E1915 url(../images/pattern.png) repeat top left; 
-  border-bottom: 1px solid rgba(0,0,0,0.3);
 }
   
 /* Reset bootstrap */
 .navbar-default {
-  background-color: transparent;
-  border-color: transparent;
+  background:#1E1915 url(../images/pattern.png) repeat top left; 
+  border-color: rgba(0,0,0,0.3);
   .navbar-nav > li > a {
     color: #fff;
     font-family: "roboto_condensedregular",sans-serif;
@@ -81,6 +108,16 @@ header {
   padding: 0 !important;
 }
 
+.home-background {
+  background: #1E1915;
+  box-shadow: 0 -30px 0 0 #6A472B inset;
+  padding-top: 30px;
+}
+.container.light-brown-background {
+  background: #F2DEA2;
+  box-shadow: 0 5px 0 0 #BFAF7E;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   header {
@@ -126,9 +163,41 @@ header {
     border-radius: 0 4px 4px 0;
     margin-left: 1px;
   }
+  .acasa-col-1 {
+    img {
+      border-top-left-radius: 10px;
+    }
+  }
+  .acasa-col-1-text {
+    border-right: 1px solid #BFAF7E;
+  }
+  .acasa-col-3 {
+    img {
+      border-top-right-radius: 10px;
+    }
+  }
+  .acasa-col-3-text {
+    border-left: 1px solid #BFAF7E;
+  }
+  .light-brown-background {
+    .row {
+      height: 100%;
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      .col-xs-12 {
+        height: 100%;
+        display: table-cell;
+        float: none !important;
+      }
+    }
+  }
 }
 /* Responsive: Notebooks and up */
 @media screen and (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
   header {
     height: 110px;
   }
@@ -137,7 +206,8 @@ header {
       font-size: 24px;
     }
     .navbar-brand {
-      padding: 30px 0 0 0;
+      padding: 27px 0 0 0;
+      height: 83px;
     }
     .navbar-collapse {
       .navbar-nav {
