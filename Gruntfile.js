@@ -144,7 +144,9 @@ module.exports = function (grunt) {
       all: {
         options: {
           run: true,
-          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html',
+                'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/servicii.html',
+                'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/contact.html']
         }
       }
     },
@@ -194,7 +196,9 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         ignorePath: /^\/|\.\.\//,
-        src: ['<%= config.app %>/index.html'],
+        src: ['<%= config.app %>/index.html',
+             '<%= config.app %>/servicii.html',
+             '<%= config.app %>/contact.html'],
         exclude: ['bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js']
       },
       sass: {
@@ -225,16 +229,24 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: ['<%= config.app %>/index.html',
+            '<%= config.app %>/servicii.html',
+            '<%= config.app %>/contact.html']
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       options: {
-        assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
+        assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images'],
+        patterns: {
+          js: [
+              [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
+          ]
+        }
       },
       html: ['<%= config.dist %>/{,*/}*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+      css: ['<%= config.dist %>/styles/{,*/}*.css'],
+      js: ['<%= config.dist %>/scripts/*.js']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -320,6 +332,9 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
+            'browserconfig.xml',
+						'send_mail.php',
+						'manifest.json',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
